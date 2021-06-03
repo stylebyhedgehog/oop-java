@@ -17,7 +17,8 @@ public class DeleteCommand implements Command {
     }
 
     @PostConstruct
-    private void print(){
-        System.out.println("Сконфигурирован бин "+this.getClass().getSimpleName());
+    private void print() {
+        System.out.println("Сконфигурирован бин " + this.getClass().getSimpleName());
     }
+
 }

@@ -1,15 +1,24 @@
 package com.company.Spring.command;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Main {
+@SpringBootApplication
+public class Main implements CommandLineRunner {
+    @Autowired
+    private Developer developer;
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context= new AnnotationConfigApplicationContext(AppConfig.class
-        );
-        Developer developer= context.getBean(Developer.class);
+        SpringApplication.run(Main.class, args);
+
+    }
+    public void run(String... args){
         developer.insertRecord();
-        developer.selectRecord();
         developer.updateRecord();
+        developer.selectRecord();
         developer.deleteRecord();
+
     }
 }
